@@ -7,7 +7,21 @@ using Microsoft.Extensions.Hosting;
 /*
 Mon client de la bibliothèque veut gérer les manga dans sa bibliothèque
 L'objectif est de récupérer tout les manga qu'elle à dejà dans sa base donnée
+ou crée un manga dans la DB
 vous devez crée l'entité, le service, le repo et me dire pourquoi et qu'est-ce que ça permet
+
+ la class MANGA à comme propriété
+Titre
+Genre
+NombrePage
+
+Le Genre ne peut pas être horreur car la bibliothécaire a trop peur
+le titre ne peux pas comporter l'insulte (con et minable) donc vérifier le titre
+
+Crée un manga
+et get tout les manga dans la DB
+
+
 */
 
 Console.OutputEncoding = System.Text.Encoding.UTF8;

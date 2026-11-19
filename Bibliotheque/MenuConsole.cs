@@ -6,13 +6,19 @@ namespace Bibliotheque.App
     public class MenuConsole
     {
 
-        // pourquoi j'injecte une interface et pas une classe ?
-        // j'injecte une interface car elle permet juste de dire
-        // tient cette méthode et grâce à ça
-        // quand je vais faire un test unitaire je n'aurais pas à me soucier
-        // de la logique
+        // Pourquoi j'injecte une interface et pas une classe ?
+        //
+        // L'interface est un contrat : elle dit seulement QUELLES méthodes existent
+        // (ex. Create), pas COMMENT elles fonctionnent.
+        //
+        // MenuConsole ne connaît donc pas la classe concrète (LivreService).
+        // C'est le conteneur d'injection de dépendances qui choisit laquelle fournir.
+        //
+        // Avantages :
+        //   - Faible couplage : je peux changer d'implémentation sans toucher à MenuConsole.
+        //   - Tests unitaires : je peux passer un faux service (mock) à la place du vrai,
+        //     pour tester le menu sans dépendre de la vraie logique métier ni des données.
         private readonly ILivreService _livreService;
-
         public MenuConsole(ILivreService livreService)
         {
             _livreService = livreService;
