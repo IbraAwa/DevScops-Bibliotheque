@@ -1,4 +1,5 @@
-﻿using Bibliotheque.Application.Repositories;
+﻿using Bibliotheque.Application.Exceptions;
+using Bibliotheque.Application.Repositories;
 using Bibliotheque.Domain;
 using System;
 using System.Collections.Generic;
@@ -30,19 +31,28 @@ public class MangaService : IMangaService
     // on doit vérifier que le genre n'est pas horreur 
     public void Create(string titre, string genre, decimal prix)
     {
-        if(prix > 20)
+        try
         {
-            // avoir des erreurs explicite
-            Console.WriteLine("Le prix du manga est trop élevé ");
-        }
+            if (prix > 20)
+            {
+                // avoir des erreurs explicite
+                throw new PrixTropEleverException("Le prix du manga est trop élevé");
+            }
 
-        if(genre.ToLower() == "horreur")
+            if (genre.ToLower() == "horreur")
+            {
+                Console.WriteLine("Le genre est horreur alors que c'est interdit");
+            }
+
+            Manga manga = new(titre, genre, prix);
+            _mangaRepository.Create(manga);
+        }
+        catch (PrixTropEleverException ex)
         {
-            Console.WriteLine("Le genre est horreur alors que c'est interdit");
+            Console.WriteLine();
+            Console.WriteLine(ex.InnerException);
+            Console.WriteLine();
         }
-
-        Manga manga = new(titre, genre, prix);
-        _mangaRepository.Create(manga);
     }
 
     public IEnumerable<Manga> GetAll()
