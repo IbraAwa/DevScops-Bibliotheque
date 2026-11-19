@@ -19,25 +19,69 @@ namespace Bibliotheque.App
         //   - Tests unitaires : je peux passer un faux service (mock) à la place du vrai,
         //     pour tester le menu sans dépendre de la vraie logique métier ni des données.
         private readonly ILivreService _livreService;
-        public MenuConsole(ILivreService livreService)
+        private readonly IMangaService _mangaService;
+
+        public MenuConsole(ILivreService livreService, IMangaService mangaService)
         {
             _livreService = livreService;
+            _mangaService = mangaService;
         }
 
         public void Run()
         {
-            Console.WriteLine("Quel action voulez-vous faire ?");
-            Console.WriteLine("1) Crée un livre");
-            int action = int.Parse(Console.ReadLine());
+            bool mod = true;
 
-            if(action == 1)
+            while (mod)
             {
-                Console.WriteLine("Quel est le titre de votre livre ?");
-                string titre = Console.ReadLine();
+                Console.WriteLine("Quel action voulez-vous faire ?");
+                Console.WriteLine("1) Crée un livre");
+                Console.WriteLine("2) Crée un manga");
+                Console.WriteLine("3) Récupérer tout mes mangas");
+                int action = int.Parse(Console.ReadLine());
 
-                Console.WriteLine("Nombre de page ?");
-                int nombrePage = int.Parse(Console.ReadLine());
-                _livreService.Create(titre, nombrePage);
+                if (action == 1)
+                {
+                    Console.WriteLine("Quel est le titre de votre livre ?");
+                    string titre = Console.ReadLine();
+
+                    Console.WriteLine("Nombre de page ?");
+                    int nombrePage = int.Parse(Console.ReadLine());
+                    _livreService.Create(titre, nombrePage);
+                }
+                else if (action == 2)
+                {
+                    Console.WriteLine("Quel est le titre du manga ?");
+                    string titreManga = Console.ReadLine();
+
+                    Console.WriteLine("Quel genre est votre manga ?");
+                    string genreManga = Console.ReadLine();
+
+                    Console.WriteLine("Quel est le prix de votre manga ?");
+                    decimal prixManga = decimal.Parse(Console.ReadLine());
+
+                    _mangaService.Create(titreManga, genreManga, prixManga);
+                }
+                else if (action == 3)
+                {
+                    IEnumerable<Manga> mangas = _mangaService.GetAll();
+
+                    foreach (Manga manga in mangas)
+                    {
+                        Console.WriteLine($"{manga.Titre} - {manga.Prix}");
+                        Console.WriteLine();
+                    }
+
+                }
+
+                Console.WriteLine("voulez-vous arrêter l'app ? (o/n)");
+                string choix = Console.ReadLine();
+                if(choix == "o")
+                {
+                    mod = false;
+                } else
+                {
+                    mod = true;
+                }
             }
         }
     }
