@@ -42,7 +42,7 @@ public class MangaService : IMangaService
         }
 
         Manga manga = new(titre, genre, prix);
-        IEnumerable<Manga> mangas = _mangaRepository.GetAll();
+        _mangaRepository.Create(manga);
     }
 
     public IEnumerable<Manga> GetAll()
