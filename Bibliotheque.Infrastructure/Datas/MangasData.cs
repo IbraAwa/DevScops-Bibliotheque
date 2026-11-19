@@ -1,6 +1,6 @@
 ﻿using Bibliotheque.Domain;
 
-namespace Bibliotheque.Infrastructure;
+namespace Bibliotheque.Infrastructure.Datas;
 
 public class MangasData
 {

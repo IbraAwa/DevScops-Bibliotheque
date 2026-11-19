@@ -1,6 +1,6 @@
-﻿using Bibliotheque.Domain;
+﻿using Bibliotheque.Domain.Entities;
 
-namespace Bibliotheque.Infrastructure;
+namespace Bibliotheque.Infrastructure.Datas;
 
 public static class LivresData
 {

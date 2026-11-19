@@ -1,6 +1,7 @@
-﻿using Bibliotheque.Domain;
+﻿using Bibliotheque.Application.Repositories;
+using Bibliotheque.Domain.Entities;
 
-namespace Bibliotheque.Application;
+namespace Bibliotheque.Application.Services;
 
 
 public interface ILivreService

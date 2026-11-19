@@ -1,4 +1,5 @@
-using Bibliotheque.Application;
+using Bibliotheque.Application.Repositories;
+using Bibliotheque.Infrastructure.Repositories;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 

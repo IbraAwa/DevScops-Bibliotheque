@@ -1,6 +1,6 @@
-﻿using Bibliotheque.Domain;
+﻿using Bibliotheque.Domain.Entities;
 
-namespace Bibliotheque.Application;
+namespace Bibliotheque.Application.Repositories;
 
 // une interface qui possédera toute les méthode pour pouvoir
 // manipuler mes livres (CRUD => create read update delete)

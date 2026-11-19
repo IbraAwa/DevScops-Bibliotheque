@@ -1,9 +1,10 @@
-﻿using Bibliotheque.Domain;
+﻿using Bibliotheque.Application.Repositories;
+using Bibliotheque.Domain;
 using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace Bibliotheque.Application;
+namespace Bibliotheque.Application.Services;
 
 // Chaque class service à son interface IService
 // Pourquoi ?

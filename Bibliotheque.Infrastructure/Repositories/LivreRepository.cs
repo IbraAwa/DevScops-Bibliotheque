@@ -1,7 +1,8 @@
-﻿using Bibliotheque.Application;
-using Bibliotheque.Domain;
+﻿using Bibliotheque.Application.Repositories;
+using Bibliotheque.Domain.Entities;
+using Bibliotheque.Infrastructure.Datas;
 
-namespace Bibliotheque.Infrastructure;
+namespace Bibliotheque.Infrastructure.Repositories;
 
 
 // implémentera mon interface ILivreRepository et y ajoutera la logique

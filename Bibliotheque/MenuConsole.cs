@@ -1,4 +1,4 @@
-using Bibliotheque.Application;
+using Bibliotheque.Application.Services;
 using Bibliotheque.Domain;
 
 namespace Bibliotheque.App

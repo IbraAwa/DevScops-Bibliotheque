@@ -1,4 +1,4 @@
-﻿namespace Bibliotheque.Domain;
+﻿namespace Bibliotheque.Domain.Entities;
 
 public class Livre
 {

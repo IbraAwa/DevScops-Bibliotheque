@@ -1,3 +1,4 @@
+using Bibliotheque.Application.Services;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace Bibliotheque.Application

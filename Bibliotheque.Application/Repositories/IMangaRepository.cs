@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace Bibliotheque.Application;
+namespace Bibliotheque.Application.Repositories;
 
 public interface IMangaRepository
 {

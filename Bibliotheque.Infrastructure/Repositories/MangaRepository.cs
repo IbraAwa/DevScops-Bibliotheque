@@ -1,10 +1,11 @@
-﻿using Bibliotheque.Application;
+﻿using Bibliotheque.Application.Repositories;
 using Bibliotheque.Domain;
+using Bibliotheque.Infrastructure.Datas;
 using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace Bibliotheque.Infrastructure;
+namespace Bibliotheque.Infrastructure.Repositories;
 
 public class MangaRepository : IMangaRepository
 {
